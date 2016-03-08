@@ -1,12 +1,15 @@
-<div class="jumbotron">
-  <h2>All The Lines!</h2>
-</div>
-
 <div class="row">
-  <h4>Lines</h4>
-  <ul>
+  <h2>All The Lines</h2>
+  <table class=table table-striped>
+    <tr>
+      <th>Line</th>
+      <th>Source</th>
+    </tr>
     <%= for line <- @lines do %>
-      <li><%= line.value %></li>
+      <tr>
+        <td><%= line.value %></td>
+        <td><%= line.source %></td>
+      </tr>
     <% end %>
-  </ul>
+  </table>
 </div>

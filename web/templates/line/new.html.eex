@@ -1,0 +1,16 @@
+<div class="row">
+  <h2>Add A New Line</h2>
+  <form>
+    <div class="form-group">
+      <label for="line_value">Line Value:</label>
+      <input type="text" class="form-control" id="line_value">
+    </div>
+    <div class="form-group">
+      <label for="line_source">Line Source:</label>
+      <input type="text" class="form-control" id="line_source">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </form>
+</div>
