@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  <h2>All The Lines!</h2>
+</div>
+
+<div class="row">
+  <h4>Lines</h4>
+  <ul>
+    <%= for line <- @lines do %>
+      <li><%= line.value %></li>
+    <% end %>
+  </ul>
+</div>
