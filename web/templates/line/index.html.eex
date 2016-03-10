@@ -1,6 +1,10 @@
 <div class="row">
   <h2>All The Lines</h2>
-  <table class=table table-striped>
+  <form action="<%= line_path(@conn, :new) %>" method="GET">
+    <input type="submit" class ="btn" value="Add a line">
+    <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
+  </form>
+  <table class="table">
     <tr>
       <th>Line</th>
       <th>Source</th>
@@ -8,7 +12,14 @@
     <%= for line <- @lines do %>
       <tr>
         <td><%= line.value %></td>
-        <td><%= line.source %></td>
+        <td><a href="<%= line.source %>" target="_blank"><%= line.source %></a></td>
+        <td>
+          <form action="<%= line_path(@conn, :delete, line.id) %>" method="POST">
+            <input type="submit" class ="btn" value="Delete">
+            <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
+            <input type="hidden" name="_method" value="DELETE">
+          </form>
+        </td>
       </tr>
     <% end %>
   </table>

@@ -1,16 +1,17 @@
 <div class="row">
   <h2>Add A New Line</h2>
-  <form>
+  <form method="post" action="<%= line_path(@conn, :create) %>">
     <div class="form-group">
       <label for="line_value">Line Value:</label>
-      <input type="text" class="form-control" id="line_value">
+      <input type="text" class="form-control" name="line[value]" id="line_value">
     </div>
     <div class="form-group">
       <label for="line_source">Line Source:</label>
-      <input type="text" class="form-control" id="line_source">
+      <input type="text" class="form-control" name="line[source]" id="line_source">
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-default">Submit</button>
     </div>
+    <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
   </form>
 </div>
