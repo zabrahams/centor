@@ -17,12 +17,32 @@ defmodule Centor.LineController do
     changeset = Line.changeset(%Line{}, line_params)
 
     case Repo.insert(changeset) do
-      {:ok, _user} ->
+      {:ok, _line} ->
         conn
         |> put_flash(:info, "Great Line!")
         |> redirect(to: line_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
+    end
+  end
+
+  def edit(conn, %{"id" => id}) do
+    line = Repo.get!(Line, id)
+    changeset = Line.changeset(line)
+    render(conn, "edit.html", line: line, changeset: changeset)
+  end
+
+  def update(conn, %{"id" => id, "line" => line_params}) do
+    line = Repo.get!(Line, id)
+    changeset = Line.changeset(line, line_params)
+
+    case Repo.update(changeset) do
+      {:ok, _line} ->
+        conn
+        |> put_flash(:info, "Line Updated!")
+        |> redirect(to: line_path(conn, :index))
+      {:error, changeset} ->
+        render(conn, "edit.html", line: line, changeset: changeset)
     end
   end
 

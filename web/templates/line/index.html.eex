@@ -14,10 +14,16 @@
         <td><%= line.value %></td>
         <td><a href="<%= line.source %>" target="_blank"><%= line.source %></a></td>
         <td>
-          <form action="<%= line_path(@conn, :delete, line.id) %>" method="POST">
+          <form class="form table-form" action="<%= line_path(@conn, :delete, line.id) %>" method="POST">
             <input type="submit" class ="btn" value="Delete">
             <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
             <input type="hidden" name="_method" value="DELETE">
+          </form>
+        </td>
+        <td>
+          <form class="form table-form" action="<%= line_path(@conn, :edit, line.id) %>" method="GET">
+            <input type="submit" class ="btn" value="Edit">
+            <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
           </form>
         </td>
       </tr>

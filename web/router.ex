@@ -17,7 +17,7 @@ defmodule Centor.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/lines", LineController, except: [:edit, :update, :show]
+    resources "/lines", LineController, except: [:show]
   end
 
   # Other scopes may use custom stacks.

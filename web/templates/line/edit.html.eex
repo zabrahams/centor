@@ -1,0 +1,18 @@
+<div class="row">
+  <h2>Walk The Line</h2>
+  <form method="POST" action="<%= line_path(@conn, :update, @line.id) %>">
+    <div class="form-group">
+      <label for="line_value">Line Value:</label>
+      <input type="text" class="form-control" name="line[value]" id="line_value" value="<%= @line.value %>">
+    </div>
+    <div class="form-group">
+      <label for="line_source">Line Source:</label>
+      <input type="text" class="form-control" name="line[source]" id="line_source" value="<%= @line.source %>">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+    <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
+    <input type="hidden" name="_method" value="PUT">
+  </form>
+</div>
